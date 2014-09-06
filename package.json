@@ -2,6 +2,10 @@
   "name": "webworkflow-bootstrap-gulp",
   "version": "0.0.1",
   "description": "demo for workflow on bootstrap and gulp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/destiny1020/web-gulp-seed.git"
+  },
   "author": "destiny1020",
   "devDependencies": {
     "bootstrap": "^3.2.0",
