@@ -5,7 +5,7 @@
     <title>The Landon Hotel:  You'll Feel At Home in Our Neighborhood</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="css/lib.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -45,36 +45,50 @@
 		        <fieldset>
 		          <legend>Have more questions?</legend>
 		          <div class="form-group">
-		          	<label>Your name</label>
-		          	<input type="text" name="name">
+		          	<label for="name" class="col-sm-2">Your name</label>
+		          	<div class="col-sm-10">
+		          		<input type="text" name="name" class="form-control">
+		          	</div>
 		          </div>
 		          <div class="form-group">
-		          	<label>What kind of room are you interested in?</label>
-		            <label>
-		              <input type="radio" name="roomtype" value="queen">
-		              Queen bed</label>
-		            <label>
-		              <input type="radio" name="roomtype" value="king">
-		              King bed with pull out sofa</label>
-		            <label>
-		              <input type="radio" name="roomtype" value="2queen">
-		              Two queen beds</label>
-		            <label>
-		              <input type="radio" name="roomtype" value="suite">
-		              Suite with kitchenette</label>
+		          	<label class="control-label">What kind of room are you interested in?</label>
+		          	<div class="radio">
+			            <label>
+			              <input type="radio" name="roomtype" value="queen">
+			              Queen bed</label>
+		            </div>
+		            <div class="radio">
+			            <label>
+			              <input type="radio" name="roomtype" value="king">
+			              King bed with pull out sofa</label>
+			        </div>
+	                <div class="radio">
+			            <label>
+			              <input type="radio" name="roomtype" value="2queen">
+			              Two queen beds</label>
+			        </div>
+			        <div class="radio">
+			            <label>
+			              <input type="radio" name="roomtype" value="suite">
+			              Suite with kitchenette</label>
+			        </div>
 		           </div>
 		           <div class="form-group">
-			          <label>Would you prefer a smoking or non-smoking room?</label>
-			          <label>
-			            <input type="radio" name="smoking" value="smoking">
-			            Smoking</label>
-			          <label>
-			            <input type="radio" name="smoking" value="nonsmoking">
-			            Non-smoking</label>
+			          <label class="control-label">Would you prefer a smoking or non-smoking room?</label>
+			          <div class="radio">
+				          <label>
+				            <input type="radio" name="smoking" value="smoking">
+				            Smoking</label>
+				      </div>
+			          <div class="radio">
+				          <label>
+				            <input type="radio" name="smoking" value="nonsmoking">
+				            Non-smoking</label>
+				      </div>
 			       </div>
 			       <div class="form-group">
-			          <label>Your continent:</label>
-			          <select name="continent" size="1">
+			          <label for="continent" class="control-label">Your continent:</label>
+			          <select name="continent" size="1" class="form-control">
 			            <option selected>Select one...</option>
 			            <option value="afr">Africa</option>
 			            <option value="ant">Antarctica</option>
@@ -86,30 +100,36 @@
 			          </select>
 		      		</div>
 		      		<div class="form-group">
-			          <label>Comments:</label>
-			          <textarea name="comments"></textarea>
+			          <label for="comments" class="control-label">Comments:</label>
+			          <textarea name="comments" class="form-control" rows="3" data-toggle="tooltip" title="We welcome your feedback" data-placement="bottom"></textarea>
 			        </div>
 			        <div class="form-group">
-			          <label>
-			            <input name="subscribe" type="checkbox" value="subscribe">
+			          <label for="subscribe" class="checkbox-inline">
+			            <input name="subscribe" type="checkbox" value="subscribe" data-toggle="collapse" data-target="#email">
 			            Subscribe me to the newsletter </label>
-			          <label>Your email</label>
-			            <input type="text" name="email">
+					</div>
+			        <div class="form-group collapse in" id="email">
+			          <label for="email" class="col-sm-2">Your email</label>
+			          <div class="col-sm-10">
+			            <input type="text" name="email" class="form-control">
+			          </div>
 			        </div>
-		          <button type="submit">Submit</button>
+			        <div class="form-group">
+			          <button type="submit" class="btn btn-primary">Submit</button>
+			        </div>
 		        </fieldset>
 		    </form>
 
 		</div>
 		<footer class="row siteinfo">
-			<a href="http://lynda.com/">The Landon Hotel is a fictitious brand created by lynda.com solely for the purpose of training. All products and people associated with The Landon Hotel are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</a>
+			<a href="http://lynda.com/">The Landon Hotel is a fictitious brand created by lynda.com solely for the purpose of training. All products and people associated with The Landon Hotel are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.<strong>While the workflow is enhanced by destiny1020</strong></a>
 		</footer>
 	</div><!-- end container -->
 
     
 <!-- javascript -->
     <script src="js/lib.js"></script>
-    <script src="js/style.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

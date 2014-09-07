@@ -34,6 +34,49 @@ In the starting CSS document, styles are based on custom classes not in Bootstra
 	text-decoration: underline;
 }
 
+/*override boostrap colors*/
+/*.btn-primary { 
+    background-color: #602F8D; 
+    background-image: none;
+    border-color: #602F8D; 
+}  
+.btn-primary:hover, 
+.btn-primary:focus,  
+.btn-primary:active { 
+    background-color: #53297A; 
+} */
+
+.panel-primary .panel-heading {
+    background-color: #602F8D; 
+    background-image: none;
+    border-color: #602F8D; 
+}
+
+.panel {
+    border-color: #602F8D; 
+}
+
+.modal-body .pull-left { 
+    padding-right: 1em; 
+} 
+.modal-body .pull-right { 
+    padding-left: 1em; 
+} 
+.modal-footer { 
+    clear: both; 
+} 
+
+/* form styles */
+.form-group button {
+    margin-top: 10px;
+}
+
+form .col-sm-2,
+form .col-sm-10 {
+    padding: 10px 0;
+    margin: 0;
+}
+
 /* Small devices (tablets, 768px and up) 
 
 Greater than 768 px, push logo left and tagline right. Alter 
@@ -49,4 +92,8 @@ tagline font size, alignment, and padding for larger dimensions.
 		text-align: right;
 		padding-top: 1.6em;
 	}
+    form {
+        width: 750px;
+        margin: 0 auto;
+    }
 }

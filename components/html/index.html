@@ -5,7 +5,7 @@
     <title>The Landon Hotel: You'll Feel At Home in Our Neighborhood</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="css/lib.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -41,15 +41,64 @@
 		</div>
 		<div class="row">
 			<div class="col-md-10">
-				<div id="locations">
-					<img src="images/1.jpg" alt="">
-					<img src="images/2.jpg" alt="">
-					<img src="images/3.jpg" alt="">
-					<img src="images/4.jpg" alt="">
-					<img src="images/5.jpg" alt="">
-					<img src="images/6.jpg" alt="">
-					<img src="images/7.jpg" alt="">
-					<img src="images/8.jpg" alt="">
+				<div id="locations" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#locations" data-slide-to="0" class="active"></li>
+						<li data-target="#locations" data-slide-to="1"></li>
+						<li data-target="#locations" data-slide-to="2"></li>
+						<li data-target="#locations" data-slide-to="3"></li>
+						<li data-target="#locations" data-slide-to="4"></li>
+						<li data-target="#locations" data-slide-to="5"></li>
+						<li data-target="#locations" data-slide-to="6"></li>
+						<li data-target="#locations" data-slide-to="7"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="images/1.jpg" alt="">
+						</div>
+						<div class="item">
+							<img src="images/2.jpg" alt="">
+							<div class="carousel-caption">
+								<h3>Sai Wan Beach in Hong Kong</h3>
+								<p>
+									<a href="#hongkong" data-toggle="modal">Read more about Kwun Tong Landon</a>
+								</p>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/3.jpg" alt="">
+						</div>
+						<div class="item">
+							<img src="images/4.jpg" alt="">
+							<div class="carousel-caption">
+								<h3>London Phone Booths</h3>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/5.jpg" alt="">
+						</div>
+						<div class="item">
+							<img src="images/6.jpg" alt="">
+							<div class="carousel-caption">
+								<h3>Pont Neuf Bridge in paris</h3>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/7.jpg" alt="">
+						</div>
+						<div class="item">
+							<img src="images/8.jpg" alt="">
+							<div class="carousel-caption">
+								<h3>Golden Gate Bridge at Dusk</h3>
+							</div>
+						</div>
+					</div>
+					<a href="#locations" class="left carousel-control" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a href="#locations" class="right carousel-control" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
 				</div>
 				<h2>What our customers are saying...</h2>
 				<blockquote>
@@ -75,13 +124,31 @@
 			</div>
 		</div>
 		<footer class="row siteinfo">
-			<p><a href="http://lynda.com/">The Landon Hotel is a fictitious brand created by lynda.com solely for the purpose of training. All products and people associated with The Landon Hotel are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</a></p>
+			<p><a href="http://lynda.com/">The Landon Hotel is a fictitious brand created by lynda.com solely for the purpose of training. All products and people associated with The Landon Hotel are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.<strong>While the workflow is enhanced by destiny1020</strong></a></p>
 		</footer>
 	</div><!-- end container -->
 
-    
+	<!-- modal window -->
+	<div id="hongkong" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close glyphicon glyphicon-remove" data-dismiss="modal"></button>
+                    <h3 class="modal-title">Kwun Tong Landon</h3>
+                </div>
+                <div class="modal-body">
+                    <p>In the course of a day, visitors to the Kwun Tong Landon can take a leisure walk on a pristine beach, hike on a picturesque nature trail, explore a historical trail featuring restored military remains, enjoy a ﬁshing or leisure cruise, power-shop at one of the largest indoor malls in the region, visit ancient temples, and celebrate city nightlife.</p>
+                    <p>Then, back in the Kwun Tong Landon, you can settle into sophistication and enjoy the modern conveniences that abound including in-room game consoles and unlimited movie rentals. Or perhaps you’d prefer a swim in our indoor lap pool, or a soak in one of our private window garden hot tubs, while watching the twinkling lights of the city, framed against the natural beauty of Hong Kong’s mountain ranges.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <!-- javascript -->
     <script src="js/lib.js"></script>
-    <script src="js/style.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

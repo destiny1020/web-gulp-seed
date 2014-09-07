@@ -1,18 +1,21 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
-    browserify = require('gulp-browserify'),
     concat = require('gulp-concat'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
     minifyHTML = require('gulp-minify-html'),
     connect = require('gulp-connect'),
-    minifyCSS = require('gulp-minify-css');
+    minifyCSS = require('gulp-minify-css')
+    less = require('gulp-less'),
+    path = require('path');
 
 var env,
     jsSources3rd,
     jsSources, 
     cssSources3rd,
     cssSources,
+    lessSources,
+    watchLessSources,
     htmlSources,
     fontSources, 
     imageSources, 
@@ -35,20 +38,24 @@ if(isDevelopment()) {
 }
 
 jsSources3rd = [
-  // browserify dependencies
-  'components/scripts/require.js',
+  'node_modules/jquery/dist/jquery' + jsExt,
   'node_modules/bootstrap/dist/js/bootstrap' + jsExt
 ];
 
 // add app script sources here
 jsSources = [
+  'components/scripts/*.js'
+];
 
+lessSources = [
+  'components/less/bootstrap.less'
+];
+
+watchLessSources = [
+  'components/less/**/*.less'
 ];
 
 cssSources3rd = [
-  // bootstrap css dependency
-  'node_modules/bootstrap/dist/css/bootstrap' + cssExt,
-  'node_modules/bootstrap/dist/css/bootstrap-theme' + cssExt
 ];
 
 // app css sources here
@@ -76,7 +83,6 @@ gulp.task('js', function() {
   if(jsSources3rd.length > 0) {
     gulp.src(jsSources3rd)
       .pipe(concat('lib.js'))
-      .pipe(browserify())
       .pipe(gulpif(isProduction(), uglify()))
       .pipe(gulp.dest(outputDir + 'js'));
   }
@@ -89,6 +95,16 @@ gulp.task('js', function() {
       .pipe(gulp.dest(outputDir + 'js'))
       .pipe(connect.reload());
   }
+});
+
+gulp.task('less', function () {
+  gulp.src(lessSources)
+    .pipe(less({
+      paths: [ path.join(__dirname, 'components', 'less') ]
+    }))
+    .pipe(gulpif(isProduction(), minifyCSS({keepBreaks:true})))
+    .pipe(gulp.dest(outputDir + 'css'))
+    .pipe(connect.reload());
 });
 
 gulp.task('css', function() {
@@ -136,6 +152,7 @@ gulp.task('html', function() {
 
 gulp.task('watch', function() {
   gulp.watch(jsSources, ['js']);
+  gulp.watch(watchLessSources, ['less']);
   gulp.watch(cssSources, ['css']);
   gulp.watch(fontSources, ['font']);
   gulp.watch(htmlSources, ['html']);
@@ -149,7 +166,7 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('default', ['html', 'js', 'css', 'font', 'images', 'connect', 'watch']);
+gulp.task('default', ['html', 'js', 'less', 'css', 'font', 'images', 'connect', 'watch']);
 
 function isDevelopment() {
   return env === 'development';
