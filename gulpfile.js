@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     minifyCSS = require('gulp-minify-css')
     less = require('gulp-less'),
-    path = require('path');
+    path = require('path'),
+    jshint = require('gulp-jshint');
 
 var env,
     jsSources3rd,
@@ -78,12 +79,17 @@ htmlSources = [
   'components/html/**/*.html'
 ];
 
-gulp.task('js', function() {
+gulp.task('lint', function() {
+  return gulp.src(jsSources)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
+gulp.task('js', ['lint'], function() {
   // handle 3rd scripts
   if(jsSources3rd.length > 0) {
     gulp.src(jsSources3rd)
       .pipe(concat('lib.js'))
-      .pipe(gulpif(isProduction(), uglify()))
       .pipe(gulp.dest(outputDir + 'js'));
   }
 
