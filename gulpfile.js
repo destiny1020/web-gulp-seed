@@ -26,6 +26,7 @@ var env,
 
 env = process.env.NODE_ENV || 'development';
 
+// determine whether running in DEV or PRODUCTION mode
 if(isDevelopment()) {
   outputDir = 'builds/development/';
   jsExt = '.js';
@@ -38,32 +39,37 @@ if(isDevelopment()) {
   throw new Error('Please specify NODE_ENV as "production".');
 }
 
+// all 3rd party js dependencies defined here
 jsSources3rd = [
   'node_modules/jquery/dist/jquery' + jsExt,
   'node_modules/bootstrap/dist/js/bootstrap' + jsExt
 ];
 
-// add app script sources here
+// all application js dependencies defined here
 jsSources = [
   'components/scripts/*.js'
 ];
 
+// all application less dependencies defined here
 lessSources = [
   'components/less/bootstrap.less'
 ];
 
+// only watch the application less dependencies
 watchLessSources = [
   'components/less/**/*.less'
 ];
 
+// all 3rd party css dependencies defined here
 cssSources3rd = [
 ];
 
-// app css sources here
+// all application css dependencies defined here
 cssSources = [
   'components/css/*.css'
 ];
 
+// all font dependencies defined here, including the 3rd's and application's
 fontSources = [
   // bootstrap font dependency
   'node_modules/bootstrap/dist/fonts/*.*'
@@ -71,10 +77,13 @@ fontSources = [
   // add app font sources here
 ];
 
+// all images defined here
+// TODO: add image compression if needed
 imageSources = [
   'components/images/**/*.*'
 ];
 
+// all html partials and pages defined here
 htmlSources = [
   'components/html/**/*.html'
 ];
